@@ -38,5 +38,15 @@
       "type": "String",
       "defaultValue": "JUSTINC951"
     }
+  ],
+  "metrics": [
+    {
+      "entity": "CUSTOM_DEVICE",
+      "timeseries": {
+        "key": "counter",
+        "unit": "count",
+        "displayName": "Counter"
+      }
+    }
   ]
 }
