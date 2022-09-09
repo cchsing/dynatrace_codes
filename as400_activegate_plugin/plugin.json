@@ -1,10 +1,9 @@
 {
-  "name": "custom.remote.python.AS400PluginRemote",
+  "name": "custom.remote.python.as400_activegate_plugin",
   "version": "1.0",
   "type": "python",
   "entity": "CUSTOM_DEVICE",
   "metricGroup": "tech.Custom_Technology",
-  "processTypeNames": ["PYTHON"],
   "technologies": ["IBM"],
   "source": {
     "package": "as400_activegate_plugin",
@@ -19,8 +18,8 @@
       "entity": "CUSTOM_DEVICE",
       "timeseries": {
         "key": "as400_hourly_transactions",
-        "unit": "count",
-        "displayName": "Count of Event Row in Database"
+        "unit": "Count",
+        "displayname": "as400 hourly transactions"
       }
     }
   ]

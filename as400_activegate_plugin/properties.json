@@ -2,6 +2,7 @@
   "db_system": "PUB400.COM",
   "db_library": "JUSTINC951",
   "db_table": "TESTING001",
+  "db_schema": "JUSTINC95",
   "db_user": "JUSTINC95",
   "db_password": "P@ssw0rd"
 }

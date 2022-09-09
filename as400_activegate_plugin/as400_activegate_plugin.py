@@ -2,9 +2,7 @@ from ruxit.api.base_plugin import RemoteBasePlugin
 import logging
 
 from datetime import date
-import pathlib
 import jaydebeapi
-import os
 
 logger = logging.getLogger(__name__)
 
@@ -30,17 +28,15 @@ class AS400PluginRemote(RemoteBasePlugin):
         # Jar file path
         # dir_path = pathlib.Path(__file__).parents[1]
         # dir_path = os.environ.get('JAVA_HOME')
-        dir_path = r"C:\Program Files\Java\jdk-18.0.2.1"
-        jt400libpath = str(dir_path) + "\lib\jt400.jar"
-        print(jt400libpath)
-
-        # variables
+        # dir_path = ""
+        jt400libpath = "/usr/lib/java/jt400.jar"
         cls_name = "com.ibm.as400.access.AS400JDBCDriver"
-        db_library = "JUSTINC951"
-        db_table = "TESTING001"
-        db_schema = "JUSTINC95"
-        db_system = db_user = "PUB400.COM"
-        db_password = "P@ssw0rd"
+        db_library = self.config['db_library']  # "JUSTINC951"
+        db_table = self.config['db_table']  # "TESTING001"
+        db_schema = self.config['db_schema']  # "JUSTINC95"
+        db_system = self.config['db_system']  # "PUB400.COM"
+        db_user = self.config['db_user']  # "JUSTINC95"
+        db_password = self.config['db_password']  # "P@ssw0rd"
         jdbc_conn_url = "jdbc:as400://" + db_system + "/" + db_schema
         db_aliasName = "ALIAS3"
 
