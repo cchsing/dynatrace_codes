@@ -43,7 +43,7 @@ class AS400PluginRemote(RemoteBasePlugin):
         queries = [
             {
                 "metric": "as400_hourly_transactions",
-                "sql": "SELECT COUNT(*) FROM %s.%s" % (db_library, db_aliasName)
+                "sql": "SELECT COUNT(*) AS COUNT FROM %s.%s" % (db_library, db_aliasName)
             }
         ]
 
@@ -57,3 +57,8 @@ class AS400PluginRemote(RemoteBasePlugin):
                              (db_library, db_aliasName, db_library, db_table))
                 for query in queries:
                     curs.execute(query['sql'])
+                    output = curs.fetchone()
+                    logger.info("%s query result: %s" %
+                                (query['sql'], output[0]))
+                    device.absolute(
+                        key="as400_hourly_transactions", value=output[0])

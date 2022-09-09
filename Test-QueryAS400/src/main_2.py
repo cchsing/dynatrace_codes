@@ -40,8 +40,10 @@ def main():
             curs.execute("CREATE ALIAS %s.%s FOR %s.%s" %
                          (db_library, db_aliasName, db_library, db_table))
             #curs.execute("SELECT COUNT(FNAME), LNAME FROM JUSTINC951.TESTING001 GROUP BY LNAME")
-            curs.execute("SELECT COUNT(*) FROM JUSTINC951.ALIAS3")
-            print(curs.fetchall())
+            curs.execute("SELECT COUNT(*) AS COUNT FROM JUSTINC951.ALIAS3")
+            # print(curs.fetchone())
+            output = curs.fetchone()
+            print(output[0])
 
     print('Done')
 
