@@ -1,51 +1,26 @@
 {
   "name": "custom.remote.python.AS400PluginRemote",
-  "version": "1.0.0",
+  "version": "1.0",
   "type": "python",
   "entity": "CUSTOM_DEVICE",
+  "metricGroup": "tech.Custom_Technology",
   "processTypeNames": ["PYTHON"],
-  "technologies": ["IBM AS400"],
+  "technologies": ["IBM"],
   "source": {
     "package": "as400_activegate_plugin",
     "className": "AS400PluginRemote",
     "activation": "Remote",
-    "install_requires": ["JayDeBeApi>=1.0.0"]
-  },
-  "configUI": {
-    "displayName": "IBM AS400 DB Plugin",
-    "properties": [
-      {
-        "key": "db_system",
-        "displayName": "IBM AS400 System Name",
-        "displayHint": "PUB400.COM",
-        "defaultValue": "PUB400.COM"
-      },
-      {
-        "key": "db_library",
-        "displayName": "IBM AS400 Database Library",
-        "defaultValue": "JUSTINC951"
-      }
+    "install_requires": [
+      "JayDeBeApi>=1.0.0"
     ]
   },
-  "properties": [
-    {
-      "key": "db_system",
-      "type": "String",
-      "defaultValue": "PUB400.COM"
-    },
-    {
-      "key": "db_library",
-      "type": "String",
-      "defaultValue": "JUSTINC951"
-    }
-  ],
   "metrics": [
     {
       "entity": "CUSTOM_DEVICE",
       "timeseries": {
-        "key": "counter",
+        "key": "as400_hourly_transactions",
         "unit": "count",
-        "displayName": "Counter"
+        "displayName": "Count of Event Row in Database"
       }
     }
   ]
