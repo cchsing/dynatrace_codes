@@ -1,6 +1,6 @@
 {
   "name": "custom.remote.python.as400_activegate_plugin",
-  "version": "1.0",
+  "version": "1.1",
   "type": "python",
   "entity": "CUSTOM_DEVICE",
   "metricGroup": "tech.Custom_Technology",
@@ -22,5 +22,72 @@
         "displayname": "as400 hourly transactions"
       }
     }
-  ]
+  ],
+  "properties": [
+    {
+      "key": "db_system",
+      "type": "String"
+    },
+    {
+      "key": "db_library",
+      "type": "String"
+    },
+    {
+      "key": "db_table",
+      "type": "String"
+    },
+    {
+      "key": "db_schema",
+      "type": "String"
+    },
+    {
+      "key": "db_user",
+      "type": "String"
+    },
+    {
+      "key": "db_password",
+      "type": "Password"
+    }
+  ],
+  "configUI":{
+    "displayName": "IBM AS400 Extension Testing",
+    "properties": [
+      {
+        "key": "db_system",
+        "displayName": "AS400 System Name",
+        "displayOrder": 1,
+        "displayHint": "Test1"
+      },
+      {
+        "key": "db_library",
+        "displayName": "AS400 Library Name",
+        "displayOrder": 2,
+        "displayHint": "Test2"
+      },
+      {
+        "key": "db_table",
+        "displayName": "AS400 Table Name",
+        "displayOrder": 3,
+        "displayHint": "Test3"
+      },
+      {
+        "key": "db_schema",
+        "displayName": "AS400 Schema",
+        "displayOrder": 4,
+        "displayHint": "Test4"
+      },
+      {
+        "key": "db_user",
+        "displayName": "AS400 Username",
+        "displayOrder": 5,
+        "displayHint": "Test5"
+      },
+      {
+        "key": "db_password",
+        "displayName": "AS400 Password",
+        "displayOrder": 6,
+        "displayHint": "Test6"
+      }
+    ]
+  }
 }
