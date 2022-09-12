@@ -34,8 +34,8 @@ def main():
                             [user, password],
                             jt400libpath) as conn:
         with conn.cursor() as curs:
-            # curs.execute("INSERT INTO %s.%s VALUES ('33','Catalina','JULIA')" % (
-            #     db_library, db_table))
+            curs.execute("INSERT INTO %s.%s VALUES ('43','Test','Counter')" % (
+                db_library, db_table))
             curs.execute("DROP ALIAS %s.%s" % (db_library, db_aliasName))
             curs.execute("CREATE ALIAS %s.%s FOR %s.%s" %
                          (db_library, db_aliasName, db_library, db_table))
