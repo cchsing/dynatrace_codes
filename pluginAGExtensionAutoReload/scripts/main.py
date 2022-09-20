@@ -1,7 +1,7 @@
 from __future__ import print_function
 import requests
 import json
-import getAllExtensions
+from myModules import *
 
 
 def main():

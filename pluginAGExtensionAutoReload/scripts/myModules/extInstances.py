@@ -3,14 +3,11 @@ import requests
 import json
 
 
-def main(**kwargs):
-    resourcePath = "/api/config/v1/extensions"
+def getAllInstances(**kwargs):
+    extId = kwargs['extId']
+    resourcePath = "/api/config/v1/extensions/" + extId + "/instances"
     API_ENDPOINT = kwargs['baseURL'] + resourcePath
 
     DATA = requests.get(url=API_ENDPOINT)
     DATA_DICT = json.loads(DATA.text)
     return DATA_DICT
-
-
-if __name__ == "__main__":
-    main()
