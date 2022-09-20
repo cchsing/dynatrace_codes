@@ -1,16 +1,17 @@
 from __future__ import print_function
 import requests
 import json
-from myModules import *
+from myModules import extensions, extInstances, config
 
 
 def main():
 
     # Global Configuration
     baseURL = "https://10.111.32.145/e/environment_id"
+    authToken = config.tokens[0]['Token']
 
     # Get a list of all extensions in production
-    allExtensions = getAllExtensions(baseURL=baseURL)
+    allExtensions = extensions.getAllExtensions(baseURL=baseURL)
 
     # Loop through the list and get the statuses of each extension
     # if status is not ok
