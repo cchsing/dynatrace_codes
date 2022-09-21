@@ -32,6 +32,7 @@ def main():
     newCfgas400['enabled'] = False
     newCfgas400['useGlobal'] = False
     newCfgas400['properties']['db_password'] = "P@ssw0rd"
+    rm_kw = newCfgas400['properties'].pop('db_password', None) # remove the password fields
     print(json.dumps(newCfgas400))
     as400extinstUpdated = extInstances.putInstance(
         baseURL=baseURL, extId="custom.remote.python.as400_activegate_plugin", configId="8045620730537405171", authToken=authToken, body=newCfgas400)
