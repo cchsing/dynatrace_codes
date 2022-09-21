@@ -43,13 +43,15 @@ def main():
         extStats = extensions.getExtStates(
             baseURL=baseURL, extId=extension['id'], authToken=authToken)
     # if status is not ok
-        print(extStats)
+        # print(extStats)
         for endpoint in extStats['states']: 
-            if endpoint['state'] != 'OK':
+            if endpoint['state'] != 'OK' and 'custom.remote.python' in endpoint['extensionId']:
+                print(extStats)
                 endpointCfg = extInstances.getInstance(
                     baseURL=baseURL, extId=endpoint['extensionId'], configId=endpoint['endpointId'], authToken=authToken)
                 remove_properties = endpointCfg.pop('properties', None)
                 endpointCfg['enabled'] = False
+                endpointCfg['useGlobal'] = False
                 updateEndpointCfg = extInstances.putInstance(
                     baseURL=baseURL, extId=endpoint['extensionId'], configId=endpoint['endpointId'], authToken=authToken, body=endpointCfg)
                 print(updateEndpointCfg)
