@@ -1,11 +1,8 @@
 from __future__ import print_function
-import requests
-import json
 from myModules import extensions, extInstances, config
 
 
 def main():
-
     # Global Configuration
     # baseURL = "https://10.111.32.145/e/environment_id" # CIMB URL
     baseURL = "https://isl56514.live.dynatrace.com"
@@ -23,9 +20,15 @@ def main():
                 print(extStats)
                 endpointCfg = extInstances.getInstance(
                     baseURL=baseURL, extId=endpoint['extensionId'], configId=endpoint['endpointId'], authToken=authToken)
+                
+                # Remove unnecessary fields or properties
                 remove_properties = endpointCfg.pop('properties', None)
+
+                # Changing the configuration settings
                 endpointCfg['enabled'] = True
                 endpointCfg['useGlobal'] = False
+
+                # Update the configuration
                 updateEndpointCfg = extInstances.putInstance(
                     baseURL=baseURL, extId=endpoint['extensionId'], configId=endpoint['endpointId'], authToken=authToken, body=endpointCfg)
                 print(updateEndpointCfg)
